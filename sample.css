@@ -1,0 +1,446 @@
+@charset "utf-8";
+
+/* -----------------------------
+   リセットCSS
+------------------------------ */
+body, h1, h2, h3, h4, h5, h6,
+p, ul, ol, figure, dl, dd {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img {
+    vertical-align: bottom;
+    max-width: 100%;
+    height: auto;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* -----------------------------
+   カラー・フォント変数
+------------------------------ */
+:root {
+    --color-bg: #f5f0e8;
+    --color-main: #1a3a4a;
+    --color-accent: #8b4513;
+    --color-accent-light: #c8956c;
+    --color-white: #ffffff;
+    --color-text: #2d2d2d;
+    --color-muted: #666666;
+    --color-border: #d4c9b0;
+    --font-display: "Shippori Mincho", serif;
+    --font-body: "Noto Sans JP", sans-serif;
+}
+
+/* -----------------------------
+   ベース
+------------------------------ */
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* -----------------------------
+   ヘッダー
+------------------------------ */
+header {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    text-align: center;
+    padding: 56px 24px;
+    position: relative;
+    overflow: hidden;
+}
+header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, #1a3a4a 60%, #2a5a6a 100%);
+    opacity: 0.95;
+}
+.header-inner {
+    position: relative;
+    z-index: 1;
+}
+.header-catch {
+    font-family: var(--font-display);
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: var(--color-accent-light);
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+}
+header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 7vw, 64px);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+.header-sub {
+    font-size: clamp(12px, 1.8vw, 14px);
+    letter-spacing: 0.35em;
+    color: var(--color-accent-light);
+    font-weight: 300;
+}
+
+/* -----------------------------
+   メイン
+------------------------------ */
+main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px;
+}
+
+/* -----------------------------
+   メイン画像
+------------------------------ */
+.mv {
+    text-align: center;
+    margin-bottom: 56px;
+}
+.mv img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+.mv-caption {
+    font-size: 12px;
+    color: var(--color-muted);
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+}
+
+/* -----------------------------
+   セクション共通
+------------------------------ */
+section {
+    background-color: var(--color-white);
+    border-radius: 4px;
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    border-top: 3px solid var(--color-accent);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 700;
+    color: var(--color-main);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 20px;
+    letter-spacing: 0.08em;
+}
+.section-date {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--color-muted);
+    margin-left: 12px;
+}
+
+/* -----------------------------
+   自己PR
+------------------------------ */
+.section-pr p {
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.9;
+}
+.section-pr p:last-child {
+    margin-bottom: 0;
+}
+.pr-theme {
+    font-family: var(--font-display);
+    font-size: clamp(15px, 2.5vw, 17px) !important;
+    font-weight: 700;
+    color: var(--color-accent);
+    border-left: 3px solid var(--color-accent);
+    padding-left: 16px;
+    margin-top: 24px !important;
+}
+.inline-link {
+    font-size: 13px;
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-accent);
+    white-space: nowrap;
+}
+.inline-link:hover {
+    color: var(--color-accent-light);
+    border-color: var(--color-accent-light);
+}
+
+/* -----------------------------
+   目標リスト
+------------------------------ */
+.goal-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.goal-list li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 20px;
+    background-color: var(--color-bg);
+    border-radius: 4px;
+}
+.goal-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+    min-width: 40px;
+}
+.goal-text {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-main);
+    line-height: 1.5;
+}
+
+/* -----------------------------
+   現在の状況
+------------------------------ */
+.status-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.status-list li {
+    font-size: 14px;
+    padding: 10px 16px;
+    border-left: 2px solid var(--color-accent-light);
+    color: var(--color-text);
+}
+
+/* -----------------------------
+   趣味セクション共通
+------------------------------ */
+.hobby-lead {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+/* -----------------------------
+   もっと見るリンク
+------------------------------ */
+.more-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+    letter-spacing: 0.05em;
+    transition: color 0.2s, border-color 0.2s;
+}
+.more-link:hover {
+    color: var(--color-accent-light);
+    border-color: var(--color-accent-light);
+}
+
+/* -----------------------------
+   職歴
+------------------------------ */
+.career-summary {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    color: var(--color-text);
+}
+
+/* -----------------------------
+   コメント
+------------------------------ */
+.comment-text {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--color-text);
+}
+
+/* -----------------------------
+   フッター
+------------------------------ */
+footer {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+}
+
+/* -----------------------------
+   テーブル
+------------------------------ */
+.table-wrap {
+    overflow-x: auto;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.result-table th {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+.result-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+.result-table tr:last-child td {
+    border-bottom: none;
+}
+.result-table tr.highlight td {
+    background-color: #fdf5ec;
+}
+.result-table tr:hover td {
+    background-color: #f5f0e8;
+}
+section h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-main);
+    margin-top: 28px;
+    margin-bottom: 4px;
+    padding-left: 10px;
+    border-left: 3px solid var(--color-accent-light);
+}
+
+/* -----------------------------
+   スポーツリスト
+------------------------------ */
+.sports-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.sports-list li {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 12px 16px;
+    background-color: var(--color-bg);
+    border-radius: 4px;
+}
+.sports-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-main);
+    min-width: 140px;
+    flex-shrink: 0;
+}
+.sports-desc {
+    font-size: 14px;
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+/* -----------------------------
+   戻るリンク
+------------------------------ */
+.back-link {
+    margin-bottom: 24px;
+}
+.back-link a {
+    font-size: 13px;
+    color: var(--color-muted);
+    text-decoration: none;
+}
+.back-link a:hover {
+    color: var(--color-accent);
+}
+
+/* -----------------------------
+   タイムライン
+------------------------------ */
+.timeline {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.timeline li {
+    position: relative;
+    padding-left: 24px;
+    border-left: 2px solid var(--color-border);
+}
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+}
+.timeline-date {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+}
+.timeline-text {
+    display: block;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+.source-link {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--color-muted);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-muted);
+}
+.source-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* -----------------------------
+   レスポンシブ（スマホ対応）
+------------------------------ */
+@media (max-width: 600px) {
+    section {
+        padding: 24px 20px;
+    }
+    .goal-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .goal-num {
+        font-size: 22px;
+    }
+}
