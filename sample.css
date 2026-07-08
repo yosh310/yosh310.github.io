@@ -429,18 +429,152 @@ section h3 {
 }
 
 /* -----------------------------
-   レスポンシブ（スマホ対応）
+   着物リスト
+------------------------------ */
+.kimono-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+    margin-bottom: 28px;
+}
+.kimono-list li {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 10px 16px;
+    background-color: var(--color-bg);
+    border-radius: 4px;
+    border-left: 3px solid var(--color-accent-light);
+}
+.kimono-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-main);
+    min-width: 180px;
+    flex-shrink: 0;
+}
+.kimono-desc {
+    font-size: 13px;
+    color: var(--color-muted);
+    line-height: 1.7;
+}
+
+/* -----------------------------
+   着物ギャラリー
+------------------------------ */
+.kimono-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+.kimono-photo {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: var(--color-bg);
+}
+.kimono-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* -----------------------------
+   歴史リスト
+------------------------------ */
+.history-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.history-list li {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 10px 16px;
+    background-color: var(--color-bg);
+    border-radius: 4px;
+}
+.history-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-main);
+    min-width: 160px;
+    flex-shrink: 0;
+}
+.history-desc {
+    font-size: 13px;
+    color: var(--color-muted);
+    line-height: 1.7;
+}
+
+/* -----------------------------
+   フロー図
+------------------------------ */
+.flow-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: 20px;
+}
+.flow-item {
+    width: 100%;
+    background-color: var(--color-bg);
+    border-radius: 4px;
+    padding: 16px 20px;
+    border-left: 3px solid var(--color-accent-light);
+}
+.flow-item.flow-goal {
+    background-color: var(--color-main);
+    border-left: 3px solid var(--color-accent);
+}
+.flow-item.flow-goal .flow-label {
+    color: var(--color-accent-light);
+}
+.flow-item.flow-goal .flow-text {
+    color: var(--color-white);
+}
+.flow-label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+}
+.flow-text {
+    display: block;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+.flow-arrow {
+    font-size: 24px;
+    color: var(--color-accent);
+    padding: 4px 0;
+    line-height: 1;
+}
+
+/* -----------------------------
+   レスポンシブ追加
 ------------------------------ */
 @media (max-width: 600px) {
-    section {
-        padding: 24px 20px;
+    .kimono-gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
-    .goal-list li {
+    .kimono-list li,
+    .history-list li {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
+        gap: 4px;
     }
-    .goal-num {
-        font-size: 22px;
+    .kimono-name,
+    .history-name {
+        min-width: unset;
     }
 }
